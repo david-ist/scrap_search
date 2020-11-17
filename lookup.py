@@ -12,7 +12,7 @@ while True:
         if str(search.lower()) in str(URL.lower()) or str(search.lower()) in str(TITLE.lower()) or str(search.lower()) in str(BODY.lower()):
             count += 1
             print(URL, TITLE)
-    print("Total search result is: " + str(count))
+    print("Total search result is: {}".format(str(count)))
  
 
 
