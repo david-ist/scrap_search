@@ -1,5 +1,4 @@
 import mysql.connector
-import contextlib
 
 class ConnectionError(Exception):
   pass
@@ -55,14 +54,3 @@ class UseDatabaseDictionary:
     self.connection.commit()
     self.cursor.close()
     self.connection.close()
-
-"""
-@contextlib.contextmanager
-def UseDatabaseDictionary(config):
-  connection = mysql.connector.connect(**config)
-  cursor = connection.cursor(dictionary=True)  
-  yield cursor
-  connection.commit()
-  cursor.close()
-  connection.close()
-  """
