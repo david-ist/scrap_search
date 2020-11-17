@@ -8,7 +8,7 @@ from queries import select, update, insert
 
 # Open an example CSV file and insert the values to an empty list
 try:
-  with open("####", "rt") as csvfile:
+  with open("####.csv", "rt") as csvfile:
     csvArray = []
     for row in csv.reader(csvfile, delimiter = ' '):
       csvArray.append(row)
