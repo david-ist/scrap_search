@@ -1,4 +1,4 @@
-from queries import lookup_select
+from queries import select
 
 # Doing the actual lookup. Does a select, and comparing it to the input values.
 _SQL_select = (""" select Website_URL,Website_title, site_body from website.site""")
