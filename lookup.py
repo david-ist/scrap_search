@@ -1,7 +1,8 @@
 from queries import lookup_select
 
 # Doing the actual lookup. Does a select, and comparing it to the input values.
-data = lookup_select()
+_SQL_select = (""" select Website_URL,Website_title, site_body from website.site""")
+data = select(None,None, _SQL_select, 0)
 count = 0
 while True:    
     search = input("input a search term:")
