@@ -17,3 +17,9 @@ ReadCSV.py -> read the CSV file and store it in the database
 queries.py -> contains all the query functions used in the scripts
 dbuse.py -> contex manager created for the database
 lookup.py -> doing the actual lookup and storing it in a dictionary. 
+
+The DBConfig is expected in a JSON file. The JSON file format should look like the following:
+{"dbconfig":  {"host": "127.0.0.1",
+            "user": "user",
+            "password": "password",
+            "database": "website"}}
