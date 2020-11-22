@@ -2,7 +2,7 @@ from dbuse import UseDatabase, CredentialsError, ConnectionError, UseDatabaseDic
 import json
 
 #Configuration for the Database stored in a JSON file
-with open("C:/Users/David/Desktop/Python/Store HTML/dbconfig.json", "r") as file:
+with open("dbconfig.json", "r") as file:
     data = json.loads(file.read())
     dbconfig = data["dbconfig"]
 
