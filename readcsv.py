@@ -4,11 +4,11 @@ from bs4 import BeautifulSoup
 import csv
 import datetime
 import time
-from queries import select, update, insert
+from queries import select, insert_update
 
 # Open an example CSV file and insert the values to an empty list
 try:
-  with open("####.csv", "rt") as csvfile:
+  with open("domains.csv", "rt") as csvfile:
     csvArray = []
     for row in csv.reader(csvfile, delimiter = ' '):
       csvArray.append(row)
@@ -45,10 +45,16 @@ for x in csvArray:
     soup = soup_function(site)
     elements(soup)
     st = current_time()
-    data = select(site, st)
-    if len(data) == 0:
+    _SQL_select = (""" select WEBSITE_URL from website.site where website_url = %s""")
+    data = None
+    data = select(site, st, _SQL_select, 1)
+    if data is None:
       st = current_time()
-      insert(site, title, body_nospace, body_raw, st)
+      p = "Insert executed"
+      _SQL = ("""INSERT INTO website.site (WEBSITE_URL, WEBSITE_TITLE, SITE_BODY, SITE_HTML) VALUES (%s, %s, %s, %s)""")
+      insert_update(site, title, body_nospace, body_raw, st, _SQL, p)
     else:
       st = current_time()
-      update(site, title, body_nospace, body_raw, st)
+      p = "updated executed"
+      _SQL = ("""UPDATE website.site SET WEBSITE_TITLE = %s, SITE_BODY = %s, SITE_HTML = %s where WEBSITE_URL = %s""")
+      insert_update(site, title, body_nospace, body_raw, st, _SQL, p)
