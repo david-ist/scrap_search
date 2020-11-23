@@ -54,3 +54,7 @@ class UseDatabaseDictionary:
     self.connection.commit()
     self.cursor.close()
     self.connection.close()
+    if exc_type is mysql.connector.errors.ProgrammingError:
+      raise SQLError(exc_value)
+    elif exc_type:
+      raise exc_type(exc_value)
