@@ -3,6 +3,7 @@ from queries import select
 # Doing the actual lookup. Does a select, and comparing it to the input values.
 _SQL_select = (""" select Website_URL,Website_title, site_body from website.site""")
 data = select(None,None, _SQL_select, 0)
+#count indicates how many results we are getting back and counts the total
 count = 0
 while True:    
     search = input("input a search term:")
