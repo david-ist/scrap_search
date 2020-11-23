@@ -6,6 +6,8 @@ with open("dbconfig.json", "r") as file:
     data = json.loads(file.read())
     dbconfig = data["dbconfig"]
 
+# select statement used in lookup and read CSV. ID is an identifier exactly where we use it. If ID = 1 we are executing the SELECT from readcsv
+# If = 0 we use the SELECT statement from the lookup
 def select(site, st, _SQL_select, ID):
     try:
         if ID == 1: 
