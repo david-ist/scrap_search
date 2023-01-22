@@ -1,6 +1,6 @@
-Example application which reads a CSV file containing URLs and using Beautifulsoup to scrap a website title & body. It stores these in MySQL database. Please follow the robots.txt for each webpage before you do an scraping.
+Example application which reads a CSV file containing URLs of websites and using Beautifulsoup to scrap a website title & body. The script stores the title & body in a MySQL database. Please follow the robots.txt for each webpage before you do any scraping.
 
-The MySQL table is simple, looks as follows:
+The MySQL table looks as follows:
 CREATE TABLE `site` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `WEBSITE_URL` varchar(90) DEFAULT NULL,
